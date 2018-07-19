@@ -5,7 +5,7 @@ This system uses semiconductor sensor AD590 to monitor the temperature of water 
 
 
 
-Working :
+# Working :
 ADC will give binary equivalent of the I/P voltage. Input will vary from 0 to 5V (0 to 100 degree C) and the ADC O/P varies from 00-FFH. So 5V/100 i.e. 5000mvs/100 gives 50mvs/0C. And the counts for indication of temperature are taken as 2.5 (256/100) per degree C.
 8255 is interfaced with 8086 in I/O mapped I/O. port A (PA0-PA7) as input port is connect to data lines of ADC, PB0, PB1, PB2 lines of port B for channel selection, PC2 connected to Start of conversion (SOC) and PC3 to O/P enable. Channel 1 of ADC is used to input analog signal, Channel 0 of ADC for temperature controller. 
 AC supply to the external heating element is controlled through the onboard Relay, based on the set value. When the temperature of the heating element (which is sensed by AD590, AD590 output is analog which is converted to digital by ADC) is less than the set value (reference value) heating element will be switched ON and when temperature crosses the set temperature AC supply is turned OFF.
