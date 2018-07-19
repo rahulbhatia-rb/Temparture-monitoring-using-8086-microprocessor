@@ -2,6 +2,9 @@
 Temperature measurement is of great importance in industry as most of the processes are temperature dependent. A number of devices and schemes have been used over the years, for the measurement of temperature. Typical sensors include devices like thermocouples, thermostats, RTD’s and semiconductor sensor. 
 Temperature control system involved interfacing successive approximation ADC and typical method of measuring and controlling the temperature using microprocessor. ADC is among the most widely used devices for data acquisition. A digital computer uses binary values, but in physical world everything is analog, temperature, pressure, humidity, and velocity are few examples of physical quantities that we seal with every day.
 This system uses semiconductor sensor AD590 to monitor the temperature of water bath. The AD590 is basically a PTAT (proportional to absolute temperature) current regulator. It generates a current O/P of 1µA/K above absolute zero temperature that is -2730C. Thus at 00C the current O/P will be 273µA and 250 if will be 298µA and 373mV at 1000. This O/p is buffered through an OPAMP having a gain of 10. To enable easy equivalence between the transducers O/P in volts and the measured temperature a calibration procedure needs to be done.
+
+
+
 Working :
 ADC will give binary equivalent of the I/P voltage. Input will vary from 0 to 5V (0 to 100 degree C) and the ADC O/P varies from 00-FFH. So 5V/100 i.e. 5000mvs/100 gives 50mvs/0C. And the counts for indication of temperature are taken as 2.5 (256/100) per degree C.
 8255 is interfaced with 8086 in I/O mapped I/O. port A (PA0-PA7) as input port is connect to data lines of ADC, PB0, PB1, PB2 lines of port B for channel selection, PC2 connected to Start of conversion (SOC) and PC3 to O/P enable. Channel 1 of ADC is used to input analog signal, Channel 0 of ADC for temperature controller. 
